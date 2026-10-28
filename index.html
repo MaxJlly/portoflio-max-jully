@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Max Jully — Portfolio | Alternance Ingénieur Informatique</title>
+<meta name="description" content="Portfolio de Max Jully, élève ingénieur en informatique au CESI, spécialisé en développement (Python, C/C++, C#, PHP/Laravel, SQL). Recherche une alternance de 3 ans.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fffaf5;--surface:#ffffff;--text:#241811;--muted:#6f5f52;--border:#f1e3d6;
+  --accent:#ea580c;--accent2:#f59e0b;--accent-soft:#ffefe0;--on-accent:#ffffff;--shadow:0 8px 30px rgba(124,45,18,.09);
+  color-scheme:light;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#14100d;--surface:#1e1813;--text:#f7eee6;--muted:#b9a899;--border:#352a21;
+    --accent:#fb923c;--accent2:#fbbf24;--accent-soft:#3b2314;--on-accent:#ffffff;--shadow:0 8px 30px rgba(0,0,0,.4);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#14100d;--surface:#1e1813;--text:#f7eee6;--muted:#b9a899;--border:#352a21;
+    --accent:#fb923c;--accent2:#fbbf24;--accent-soft:#3b2314;--on-accent:#ffffff;--shadow:0 8px 30px rgba(0,0,0,.4);
+  color-scheme:dark;
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+.mono{font-family:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}
+
+/* Nav */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:700;letter-spacing:-.02em}
+.logo span{color:var(--accent)}
+.links{display:flex;gap:22px;align-items:center;font-size:.92rem;color:var(--muted)}
+.links a:hover{color:var(--text)}
+.tbtn{border:1px solid var(--border);background:var(--surface);color:var(--text);width:36px;height:36px;border-radius:10px;cursor:pointer;font-size:1rem}
+@media (max-width:720px){.links a.l{display:none}}
+
+/* Hero */
+.hero{padding:88px 22px 64px}
+.badge{display:inline-flex;gap:8px;align-items:center;font-size:.82rem;padding:6px 12px;border:1px solid var(--border);border-radius:999px;background:var(--surface);color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.2)}
+h1{font-size:clamp(2.2rem,6vw,3.9rem);line-height:1.08;letter-spacing:-.035em;margin:22px 0 14px}
+h1 .grad{background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:1.15rem;color:var(--muted);max-width:620px;margin:0 0 30px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:12px 22px;border-radius:12px;font-weight:600;font-size:.95rem;border:1px solid var(--border);background:var(--surface);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+.btn.p{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:52px}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px}
+.stat b{display:block;font-size:1.7rem;letter-spacing:-.02em;color:var(--accent)}
+.stat span{font-size:.85rem;color:var(--muted)}
+
+.soft{font-size:.82rem;color:var(--accent);font-weight:500}
+.ti ul{margin:6px 0 0;padding-left:18px;color:var(--muted);font-size:.94rem}
+.ti li{margin:2px 0}
+
+/* Sections */
+section{padding:64px 0}
+.eyebrow{font-size:.8rem;color:var(--accent);text-transform:uppercase;letter-spacing:.14em;font-weight:600}
+h2{font-size:clamp(1.6rem,3.5vw,2.2rem);letter-spacing:-.025em;margin:8px 0 32px}
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:36px}
+@media (max-width:760px){.about{grid-template-columns:1fr}}
+.about p{margin:0 0 14px;color:var(--muted)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:12px;font-size:.95rem}
+.facts li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--border);padding-bottom:10px}
+.facts li:last-child{border:0;padding:0}
+.facts span{color:var(--muted)}
+
+/* Skills */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+.skill h3{margin:0 0 12px;font-size:1rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:.8rem;padding:4px 10px;border-radius:8px;background:var(--accent-soft);color:var(--accent);font-weight:500}
+
+/* Projects */
+.proj{display:flex;flex-direction:column;gap:12px;transition:transform .2s}
+.proj:hover{transform:translateY(-4px)}
+.proj .top{display:flex;justify-content:space-between;align-items:center;font-size:.78rem;color:var(--muted)}
+.proj h3{margin:0;font-size:1.15rem;letter-spacing:-.01em}
+.proj p{margin:0;color:var(--muted);font-size:.94rem;flex:1}
+.proj .links2{display:flex;gap:16px;font-size:.88rem;font-weight:600;color:var(--accent)}
+.thumb{height:140px;border-radius:12px;background:linear-gradient(135deg,#ea580c,#f59e0b);display:grid;place-items:center;font-family:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;font-size:1rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#fff}
+
+/* Carousel */
+.carousel{position:relative}
+.track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:8px 4px 22px;margin:0 -4px;-webkit-overflow-scrolling:touch}
+.track::-webkit-scrollbar{display:none}
+.track>.proj{flex:0 0 min(400px,86%);scroll-snap-align:start}
+.cnav{display:flex;align-items:center;justify-content:center;gap:18px}
+.cbtn{width:42px;height:42px;border-radius:50%;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:1.1rem;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.cbtn:hover{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.dots{display:flex;gap:8px}
+.dots button{width:9px;height:9px;padding:0;border-radius:50%;border:0;background:var(--border);cursor:pointer;transition:width .2s,background .2s}
+.dots button.on{width:26px;border-radius:6px;background:var(--accent)}
+
+/* Timeline */
+.tl{position:relative;margin-left:8px;padding-left:28px;border-left:2px solid var(--border);display:grid;gap:28px}
+.ti{position:relative}
+.ti::before{content:"";position:absolute;left:-37px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.ti .date{font-size:.8rem;color:var(--accent)}
+.ti h3{margin:2px 0 2px;font-size:1.05rem}
+.ti .org{color:var(--muted);font-size:.92rem;margin-bottom:6px}
+.ti p{margin:0;color:var(--muted);font-size:.94rem}
+
+/* Contact */
+.contact{text-align:center}
+.contact p{color:var(--muted);max-width:520px;margin:0 auto 26px}
+.socials{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:22px}
+footer{padding:30px 0;text-align:center;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border)}
+
+.rv{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="#top" class="logo mono">&lt;<span>MJ</span>/&gt;</a>
+      <div class="links">
+        <a class="l" href="#apropos">À propos</a>
+        <a class="l" href="#competences">Compétences</a>
+        <a class="l" href="#projets">Projets</a>
+        <a class="l" href="#parcours">Parcours</a>
+        <a href="#contact" class="btn p" style="padding:8px 16px">Me contacter</a>
+        <button class="tbtn" id="theme" aria-label="Changer de thème">◐</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <span class="badge"><span class="dot"></span> Disponible dès maintenant — alternance de 3 ans</span>
+    <h1>Salut, je suis <span class="grad">Max Jully</span>,<br>élève ingénieur en informatique.</h1>
+    <p class="lead">Élève en école d’ingénieur au CESI, j’étudie l’informatique avec une spécialisation en développement logiciel, tout en restant ouvert à d’autres types de missions. Rigoureux, autonome et à l’aise en équipe Agile.</p>
+    <div class="cta">
+      <a class="btn p" href="#projets">Voir mes projets</a>
+      <a class="btn" href="https://www.linkedin.com/in/max-jully-204734307">LinkedIn</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>3 ans</b><span>d’alternance recherchée</span></div>
+      <div class="stat"><b>4 mois</b><span>de stage back-end chez Technal</span></div>
+      <div class="stat"><b>6</b><span>projets présentés</span></div>
+      <div class="stat"><b>800</b><span>score TOEIC (anglais B2)</span></div>
+    </div>
+  </div>
+
+  <section id="apropos">
+    <div class="wrap rv">
+      <div class="eyebrow">À propos</div>
+      <h2>Un profil entre théorie et terrain</h2>
+      <div class="about">
+        <div>
+          <p>Élève ingénieur en informatique au CESI Toulouse, avec une spécialisation en développement logiciel. Après une classe préparatoire intégrée (2024 – juin 2026), j’ai rejoint le cycle ingénieur en septembre 2026 et je recherche une alternance d’une durée de 3 ans.</p>
+          <p>Lors de mon stage chez Technal, j’ai conçu et développé en C++ une API from scratch pour créer, lire et modifier des fichiers Excel, puis un wrapper vers C# et C++/CLI, avant de l’intégrer à un projet existant.</p>
+          <p>En dehors des cours, je suis secrétaire général de l’association Horizon Propre (nettoyage d’espaces verts pollués), j’ai été bénévole pour COP1 Solidarité étudiante et j’ai donné des cours particuliers de mathématiques.</p>
+        </div>
+        <div class="card">
+          <ul class="facts">
+            <li><span>Formation</span><b>Cycle ingénieur (CESI)</b></li>
+            <li><span>Alternance</span><b>3 ans</b></li>
+            <li><span>Disponibilité</span><b>Dès maintenant</b></li>
+            <li><span>Langues</span><b>Anglais B2 (TOEIC 800)</b></li>
+            <li><span>Permis</span><b>B en cours</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="competences">
+    <div class="wrap rv">
+      <div class="eyebrow">Compétences</div>
+      <h2>Ma boîte à outils</h2>
+      <div class="grid">
+        <div class="card skill"><h3>Développement Back-end</h3><div class="tags"><span class="tag">Python</span><span class="tag">C / C++</span><span class="tag">C#</span><span class="tag">C++/CLI</span><span class="tag">C Arduino</span><span class="tag">PHP (Laravel, MVC)</span></div></div>
+        <div class="card skill"><h3>Développement Front-end</h3><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Blade (Laravel)</span></div></div>
+        <div class="card skill"><h3>Bases de données</h3><div class="tags"><span class="tag">MySQL</span><span class="tag">SQL</span><span class="tag">MCD / MLD / MPD</span></div></div>
+        <div class="card skill"><h3>Outils &amp; Environnements</h3><div class="tags"><span class="tag">Git</span><span class="tag">Windows</span><span class="tag">Linux (bases)</span><span class="tag">Microsoft Azure</span><span class="tag">Suite Office</span><span class="tag">Arduino</span><span class="tag">Tinkercad</span></div></div>
+        <div class="card skill"><h3>Infrastructure &amp; Réseaux</h3><div class="tags"><span class="tag">Cisco Packet Tracer</span></div></div>
+        <div class="card skill"><h3>Méthodologies &amp; Gestion de projet</h3><div class="tags"><span class="tag">Méthode Agile</span><span class="tag">Sprints</span><span class="tag">Gestion de projet</span><span class="tag">Travail en équipe</span></div></div>
+        <div class="card skill"><h3>Intelligence artificielle (IA)</h3><div class="tags"><span class="tag">IA générative</span><span class="tag">Développement</span><span class="tag">Débogage</span><span class="tag">Documentation</span></div></div>
+        <div class="card skill"><h3>Soft skills</h3><div class="tags"><span class="tag">Esprit d’équipe</span><span class="tag">Communication</span><span class="tag">Autonomie</span><span class="tag">Rigueur</span><span class="tag">Organisation</span><span class="tag">Pédagogie</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projets">
+    <div class="wrap rv">
+      <div class="eyebrow">Projets</div>
+      <h2>Ce que j’ai construit</h2>
+      <div class="carousel">
+      <div class="track" id="track">
+        <article class="card proj">
+          <div class="thumb">API Excel</div>
+          <div class="top mono"><span>Stage · Technal</span><span>2026</span></div>
+          <h3>API de manipulation de fichiers Excel</h3>
+          <p>Conception et développement en C++ d’une API from scratch pour créer, lire et modifier des fichiers Excel, avec un wrapper vers C# et C++/CLI, puis intégration à un projet existant.</p>
+          <div class="tags"><span class="tag">C++</span><span class="tag">C#</span><span class="tag">C++/CLI</span></div>
+          <div class="soft">Autonomie · Rigueur · Adaptabilité · Travail en équipe</div>
+        </article>
+        <article class="card proj">
+          <div class="thumb">Site web</div>
+          <div class="top mono"><span>Projet CESI</span><span>Prépa intégrée</span></div>
+          <h3>Site web complet en architecture MVC</h3>
+          <p>Élaboration d’un site web complet et fonctionnel sur une architecture MVC avec Laravel.</p>
+          <div class="tags"><span class="tag">PHP</span><span class="tag">Laravel</span><span class="tag">Blade</span><span class="tag">MySQL</span></div>
+          <div class="soft">Gestion de projet · Travail en équipe</div>
+        </article>
+        <article class="card proj">
+          <div class="thumb">Jeu vidéo</div>
+          <div class="top mono"><span>Projet d’équipe</span><span>2025</span></div>
+          <h3>Jeu vidéo 2D en C++</h3>
+          <p>Conception et développement en équipe d’un jeu vidéo 2D en C++.</p>
+          <div class="tags"><span class="tag">C++</span><span class="tag">Git</span></div>
+          <div class="soft">Esprit d’équipe · Communication</div>
+        </article>
+        <article class="card proj">
+          <div class="thumb">Station météo</div>
+          <div class="top mono"><span>Projet</span><span>2025</span></div>
+          <h3>Station météo Arduino Uno</h3>
+          <p>Création d’une station météo opérationnelle fonctionnant avec une carte Arduino Uno.</p>
+          <div class="tags"><span class="tag">Arduino</span><span class="tag">C Arduino</span><span class="tag">Tinkercad</span></div>
+          <div class="soft">Autonomie · Résolution de problèmes</div>
+        </article>
+        <article class="card proj">
+          <div class="thumb">Base de données</div>
+          <div class="top mono"><span>Projet</span><span>2025</span></div>
+          <h3>Modélisation d’une base de données SQL</h3>
+          <p>Conception d’une base de données SQL pour la gestion des données d’une entreprise fictive : modèle conceptuel (MCD), logique (MLD), puis physique (MPD).</p>
+          <div class="tags"><span class="tag">SQL</span><span class="tag">MySQL</span><span class="tag">MCD / MLD / MPD</span></div>
+          <div class="soft">Rigueur · Esprit d’analyse</div>
+        </article>
+        <article class="card proj">
+          <div class="thumb">Réseaux</div>
+          <div class="top mono"><span>Projet CESI</span><span>Prépa intégrée</span></div>
+          <h3>Topologies réseaux</h3>
+          <p>Conception et simulation de topologies réseaux avec Cisco Packet Tracer.</p>
+          <div class="tags"><span class="tag">Cisco Packet Tracer</span></div>
+          <div class="soft">Rigueur · Résolution de problèmes</div>
+        </article>
+      </div>
+      <div class="cnav">
+        <button class="cbtn" id="prev" aria-label="Projet précédent">←</button>
+        <div class="dots" id="dots"></div>
+        <button class="cbtn" id="next" aria-label="Projet suivant">→</button>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="parcours">
+    <div class="wrap rv">
+      <div class="eyebrow">Parcours</div>
+      <h2>Formation &amp; expériences</h2>
+      <div class="tl">
+        <div class="ti">
+          <div class="date mono">Depuis septembre 2026</div>
+          <h3>Élève ingénieur en informatique</h3>
+          <div class="org">CESI · Toulouse</div>
+          <p>Cycle ingénieur, spécialisation en développement.</p>
+        </div>
+        <div class="ti">
+          <div class="date mono">Avril 2026 — juillet 2026</div>
+          <h3>Stage développeur Back-end</h3>
+          <div class="org">Technal · Toulouse</div>
+          <ul>
+            <li>Conception et développement en C++ d’une API from scratch pour créer, lire et modifier des fichiers Excel (autonomie, rigueur)</li>
+            <li>Développement d’un wrapper vers C# et C++/CLI</li>
+            <li>Intégration de l’API à un projet existant (adaptabilité, travail en équipe)</li>
+          </ul>
+        </div>
+        <div class="ti">
+          <div class="date mono">Depuis octobre 2025</div>
+          <h3>Secrétaire général associatif</h3>
+          <div class="org">Horizon Propre · Toulouse</div>
+          <ul>
+            <li>Fondation, avec des étudiants, d’une association bénévole de nettoyage des espaces verts pollués (initiative, travail en équipe)</li>
+            <li>Gestion administrative, e-mails et contacts (organisation, rigueur, communication)</li>
+          </ul>
+        </div>
+        <div class="ti">
+          <div class="date mono">2024 — juin 2026</div>
+          <h3>Classe préparatoire intégrée d’ingénieur en informatique</h3>
+          <div class="org">CESI · Toulouse</div>
+          <p>Site web MVC avec Laravel, topologies réseaux, développement en Python, C, C++ et C Arduino, base de données SQL, gestion de projet et travail en équipe.</p>
+        </div>
+        <div class="ti">
+          <div class="date mono">2024 — 2025</div>
+          <h3>Bénévole, distribution alimentaire</h3>
+          <div class="org">COP1 Solidarité étudiante · Toulouse</div>
+          <ul>
+            <li>Distributions alimentaires, organisation administrative et installation des infrastructures (esprit d’équipe, organisation, sens du service)</li>
+            <li>Communication au sein de l’école : accueil des étudiants, présentation (communication, aisance relationnelle)</li>
+          </ul>
+        </div>
+        <div class="ti">
+          <div class="date mono">2024</div>
+          <h3>Baccalauréat avec mention</h3>
+          <div class="org">Lycée Olympe de Gouges · Montech</div>
+          <p>Spécialités Physique-Chimie, NSI, Mathématiques.</p>
+        </div>
+        <div class="ti">
+          <div class="date mono">2022 — 2024</div>
+          <h3>Professeur particulier de mathématiques</h3>
+          <div class="org">Activité indépendante · Toulouse</div>
+          <p>Cours particuliers de mathématiques (pédagogie, autonomie, adaptabilité).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact rv">
+      <div class="eyebrow">Contact</div>
+      <h2>Travaillons ensemble</h2>
+      <p>Une opportunité d’alternance, une question ou simplement envie d’échanger ? Écris-moi, je serai ravi de te répondre.</p>
+      <a class="btn p" href="mailto:max.jully.pro@gmail.com">max.jully.pro@gmail.com</a>
+      <div class="socials">
+        <a class="btn" href="https://www.linkedin.com/in/max-jully-204734307">LinkedIn</a>
+        <a class="btn" href="tel:+33668865653">06 68 86 56 53</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>© <span id="y">2026</span> Max Jully</footer>
+
+<script>
+(function(){
+  var root=document.documentElement,btn=document.getElementById('theme');
+  try{var s=localStorage.getItem('theme');if(s)root.setAttribute('data-theme',s);}catch(e){}
+  btn.addEventListener('click',function(){
+    var dark=root.getAttribute('data-theme')==='dark'||(!root.getAttribute('data-theme')&&matchMedia('(prefers-color-scheme: dark)').matches);
+    var next=dark?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next);}catch(e){}
+  });
+  document.getElementById('y').textContent=new Date().getFullYear();
+  var tr=document.getElementById('track'),sl=tr.children,dt=document.getElementById('dots'),cur=0,hold=false;
+  function st(){return sl[0].offsetWidth+18;}
+  function go(i){cur=(i+sl.length)%sl.length;tr.scrollTo({left:cur*st(),behavior:'smooth'});}
+  for(var i=0;i<sl.length;i++){(function(n){var b=document.createElement('button');b.setAttribute('aria-label','Projet '+(n+1));b.addEventListener('click',function(){go(n);});dt.appendChild(b);})(i);}
+  function mark(){var n=Math.min(sl.length-1,Math.round(tr.scrollLeft/st()));cur=n;for(var j=0;j<dt.children.length;j++)dt.children[j].className=j===n?'on':'';}
+  tr.addEventListener('scroll',mark,{passive:true});
+  document.getElementById('prev').addEventListener('click',function(){go(cur-1);});
+  document.getElementById('next').addEventListener('click',function(){go(cur+1);});
+  ['pointerenter','focusin','touchstart'].forEach(function(ev){tr.parentNode.addEventListener(ev,function(){hold=true;},{passive:true});});
+  ['pointerleave','focusout'].forEach(function(ev){tr.parentNode.addEventListener(ev,function(){hold=false;});});
+  if(!matchMedia('(prefers-reduced-motion: reduce)').matches){setInterval(function(){if(!hold)go(cur+1);},5000);}
+  mark();
+  var els=document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+    els.forEach(function(el){io.observe(el);});
+  }else{els.forEach(function(el){el.classList.add('in');});}
+})();
+</script>
+</body>
+</html>
